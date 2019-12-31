@@ -18,9 +18,12 @@ This is an example of how to list things you need to use the software and how to
 python vein_main.py
 ```
 
-Besides, you should dive into the file **vein_main.py**, and adjust the comments for many other usages.
+Besides, you should dive into the file ```vein_main.py```, and adjust the comments for many other usages.
 
 ## Data preparation
+
+I didn' t upload all of my own vein data for individual privacy.  
+You should place your own vein data in the ```./data/600/2``` folder
 
 ├──data  
 │   ├── 600                        // A Person's vein image  

@@ -4,7 +4,7 @@
 
 My personal project for the final assignment of Class 'Machine Vision'
 
-## Prerequest
+## Prerequests
 This is an example of how to list things you need to use the software and how to install them.
 
 * opencv-python

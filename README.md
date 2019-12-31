@@ -14,6 +14,15 @@ This is an example of how to list things you need to use the software and how to
 
 ## Descriptions
 
+Here is the structure of the whole system:
+
+![系统结构图](https://github.com/Qingcsai/Finger-Vein-Recognition/blob/master/README_images/system.png)
+
+We use the traditional ways to process the images, rather than the deep-learning methods.
+
+After your running ```vein_main.py```, you should see the histogram of the scores between inter-class and in-class. 
+
+![特征匹配得分直方图](https://github.com/Qingcsai/Finger-Vein-Recognition/blob/master/README_images/histogram.png)
 
 
 ## Usage
@@ -27,7 +36,7 @@ Besides, you should dive into the file ```vein_main.py```, and adjust the commen
 ## Data preparation
 
 I didn' t upload all of my own vein data for individual privacy.  
-You should place your own vein data in the ```./data/600/2``` folder
+You should place your own vein data in the ```./data/600/2``` folder and name it like the format below.
 
 ```
 ├──data  

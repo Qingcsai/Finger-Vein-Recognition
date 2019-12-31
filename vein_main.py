@@ -2,11 +2,9 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-import numpy as np
 import math
 import numpy
 import os
-from PIL import Image
 
 def first_filter(img):
     #均值滤波
@@ -386,13 +384,6 @@ def cut_image(image, m, n):
     #image_list = [image.crop(box) for box in box_list]
     return cropped_list
 
-def kullback_leibler_divergence(p, q):
-    p = np.asarray(p)
-    q = np.asarray(q)
-    filt = np.logical_and(p != 0, q != 0)
-    return np.sum(p[filt] * np.log2(p[filt] // q[filt]))
-
-
 #LBP特征提取
 from skimage.feature import local_binary_pattern
 
@@ -412,30 +403,6 @@ def LBP_feature_extrector(roi_file):
         #分块显示
         #plt.figure(figsize = (30, 30))
         #print(img_roi_raw_lbp_cut.shape())
-        '''
-        hist_i = ()
-        for i, cut in enumerate(img_roi_raw_lbp_cut):  
-            
-            #plt.subplot(4, 4, i + 1), plt.title(i + 1)
-            #plt.imshow(cut, cmap = plt.cm.gray)
-            
-            cut_n_bins = int(cut.max() + 1)
-            print(cut_n_bins)
-            lbp_hist = cv2.calcHist([cut], [0], None, [256], [0, 256])
-            lbp_hist = cv2.normalize(lbp_hist, lbp_hist, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX)
-         
-            score = cv2.compareHist(lbp_hist, lbp_hist, cv2.HISTCMP_BHATTACHARYYA)
-            #score = kullback_leibler_divergence(lbp_hist, lbp_hist)
-            print(score)
-            
-            cut_n_bins = int(cut.max() + 1)
-            lbp_hist = plt.hist(cut.ravel(), density=True, bins=cut_n_bins, range=(0, cut_n_bins), facecolor='0.5');plt.show()
-            hist_i += lbp_hist
-            
-            #print(hist_i)
-            #plt.imshow(hist_i)
-        #plt.show()
-        '''
         '''
         score = cv2.compareHist(lbp_hist, lbp_hist, cv2.HISTCMP_BHATTACHARYYA)
         #score = kullback_leibler_divergence(lbp_hist, lbp_hist)
@@ -499,8 +466,6 @@ def SIFT_detector(gray_path):
 #        plt.subplot(1, 3, 3), plt.title('lbp_hist')
 #        plt.imshow(lbp_hist)
         plt.show()
-    
-
     
 def SIFT_match(img1_path, img2_path):
     
@@ -595,8 +560,8 @@ def cal_scores(method='FLANN', flag=1):
             for i in range(1,11):
                 for j in range(1,11):
                     #print('%s', )
-                    strs1 = './roi_600_2_all_320240/600-{}-{}-1.bmp'.format(flag,i)
-                    strs2 = './roi_600_2_all_320240/600-{}-{}-1.bmp'.format(k,j)
+                    strs1 = './data/roi_600_2_all_320240/600-{}-{}-1.bmp'.format(flag,i)
+                    strs2 = './data/roi_600_2_all_320240/600-{}-{}-1.bmp'.format(k,j)
                     if method == 'FLANN':
                         scores = FLANN_based_Matcher(strs1, strs2)
                         scores_list_diff.append(scores)
@@ -610,8 +575,8 @@ def cal_scores(method='FLANN', flag=1):
     for i in range(1,11):
         for j in range(1,11):
             #print('%s', )
-            strs1 = './roi_600_2_all_320240/600-{}-{}-1.bmp'.format(flag,i)
-            strs2 = './roi_600_2_all_320240/600-{}-{}-1.bmp'.format(flag,j)
+            strs1 = './data/roi_600_2_all_320240/600-{}-{}-1.bmp'.format(flag,i)
+            strs2 = './data/roi_600_2_all_320240/600-{}-{}-1.bmp'.format(flag,j)
             
             if method == 'FLANN':
                 scores = FLANN_based_Matcher(strs1, strs2)
@@ -633,12 +598,13 @@ def cal_scores(method='FLANN', flag=1):
 
 #print(scores_list)
         
-
 #get_imgs_roi('./data/600/2')
-#bin_features_extract('./roi_320240')
-#bin_match('./roi_600_2_all_320240/600-3-7-1.bmp', './roi_600_2_all_320240/600-3-8-1.bmp')
-#LBP_feature_extrector('./roi_320240')
-#SIFT_detector('./roi_320240/')
-#SIFT_match('./roi_320240/600-3-7-1.bmp', './roi_320240/600-3-8-1.bmp')
+#bin_features_extract('./data/roi_320240')
+#bin_match('./data/roi_600_2_all_320240/600-3-7-1.bmp', './data/roi_600_2_all_320240/600-3-8-1.bmp')
+#LBP_feature_extrector('./data/roi_320240')
+#SIFT_detector('./data/roi_320240/')
+#SIFT_match('./data/roi_320240/600-3-7-1.bmp', './data/roi_320240/600-3-8-1.bmp')
+#2号样本计算分布直方图
 #cal_scores('FLANN', 2)
+#4号样本计算直方图
 #cal_scores('BIN', 4)

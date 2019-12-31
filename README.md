@@ -25,6 +25,7 @@ Besides, you should dive into the file ```vein_main.py```, and adjust the commen
 I didn' t upload all of my own vein data for individual privacy.  
 You should place your own vein data in the ```./data/600/2``` folder
 
+```
 ├──data  
 │   ├── 600                        // A Person's vein image  
 │   │   ├── 1                      // the first machine  
@@ -42,6 +43,7 @@ You should place your own vein data in the ```./data/600/2``` folder
 │   │   ├── 600-1-2-1.bmp  
 │   │   ├── 600-1-3-1.bmp  
 │   │   ├── ...   
+```
 
 ## License
 

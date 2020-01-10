@@ -24,6 +24,7 @@ After your running ```vein_main.py```, you should see the histogram of the score
 
 ![特征匹配得分直方图](https://github.com/Qingcsai/Finger-Vein-Recognition/blob/master/README_images/histogram.png)
 
+So we can set the threshold value to 60 for classification.
 
 ## Usage
 

@@ -4,8 +4,7 @@
 
 My personal project for the final assignment of Class *Machine Vision Application* in SCUT.
 
-## Prerequest
-This is an example of how to list things you need to use the software and how to install them.
+## Requirements
 
 * opencv-python
 * opencv-contrib-python <= 3.4.0.10 (for SIFT & SURF algorithem can be used.)
